@@ -9,7 +9,7 @@ import {
   // Title,
   Number,
   Row,
-} from "./styles";
+} from "./App.styles";
 
 export default function App() {
   return (
@@ -53,7 +53,7 @@ export default function App() {
           {/* <Title color="chocolate">iOS • Android • web</Title> */}
           <Button text="0" />
           <Button text="." />
-          <Button text="enter" />
+          <Button text="enter" special={true} />
         </Row>
       </BottomSection>
     </Container>

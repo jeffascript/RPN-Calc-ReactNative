@@ -16,7 +16,7 @@ const Title = styled(Text)`
 
 const TopSection = styled(View)`
   /* background-color: blue; */
-  padding-top: 15%;
+  padding-top: 10%;
 `;
 
 const BottomSection = styled(View)`
@@ -36,8 +36,9 @@ const Number = styled(Text)`
 
 const Row = styled(View)`
   flex-direction: row;
-  background-color: pink;
   flex: 1;
+  border-bottom-width: 1px;
+  border-color: red;
 `;
 
 export { Container, Title, TopSection, BottomSection, Number, Row };
