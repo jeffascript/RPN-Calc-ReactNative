@@ -14,13 +14,13 @@ const Title = styled(Text)`
   color: ${(props) => props.color};
 `;
 
-const Top = styled(View)`
-  background-color: blue;
+const TopSection = styled(View)`
+  /* background-color: blue; */
   padding-top: 15%;
 `;
 
-const Bottom = styled(View)`
-  background-color: green;
+const BottomSection = styled(View)`
+  /* background-color: green; */
   flex: 1;
 `;
 
@@ -34,4 +34,10 @@ const Number = styled(Text)`
   border-bottom-width: 1px;
 `;
 
-export { Container, Title, Top, Bottom, Number };
+const Row = styled(View)`
+  flex-direction: row;
+  background-color: pink;
+  flex: 1;
+`;
+
+export { Container, Title, TopSection, BottomSection, Number, Row };
