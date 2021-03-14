@@ -1,13 +1,13 @@
 import styled from "styled-components/native";
-import { View, Text } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 
-const Container = styled(View)`
-  background-color: ${(props) => (props.isSpecial ? "#9bc23c" : "#fafafa")};
+const StyledTouchableOpacity = styled(TouchableOpacity)`
+  background-color: ${(props) => (props.isSpecial ? "#9bc23c" : "#f2f2f2")};
   flex: ${(props) => (props.isSpecial ? 2 : 1)};
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   border-right-width: 1px;
-  border-color: red;
+  border-color: #ffff;
   /* color: white; */
 `;
 
@@ -16,4 +16,4 @@ const StyledText = styled(Text)`
   color: ${(props) => (props.isSpecial ? "white" : "black")};
 `;
 
-export { Container, StyledText };
+export { StyledTouchableOpacity, StyledText };

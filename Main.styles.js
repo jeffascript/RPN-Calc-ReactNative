@@ -1,30 +1,30 @@
 import styled from "styled-components/native";
 import { View, Text } from "react-native";
 
-const Container = styled(View)`
+export const Container = styled(View)`
   flex: 1;
   background-color: papayawhip;
   /* justify-content: center;
   align-items: center; */
 `;
 
-const Title = styled(Text)`
+export const Title = styled(Text)`
   font-size: 24px;
   font-weight: 500;
   color: ${(props) => props.color};
 `;
 
-const TopSection = styled(View)`
+export const TopSection = styled(View)`
   /* background-color: blue; */
   padding-top: 10%;
 `;
 
-const BottomSection = styled(View)`
+export const BottomSection = styled(View)`
   /* background-color: green; */
   flex: 1;
 `;
 
-const Number = styled(Text)`
+export const Number = styled(Text)`
   color: #ffff;
   background-color: #424242;
   text-align: right;
@@ -34,11 +34,9 @@ const Number = styled(Text)`
   border-bottom-width: 1px;
 `;
 
-const Row = styled(View)`
-  flex-direction: row;
+export const Row = styled(View)`
   flex: 1;
+  flex-direction: row;
   border-bottom-width: 1px;
-  border-color: red;
+  border-color: #ffff;
 `;
-
-export { Container, Title, TopSection, BottomSection, Number, Row };
