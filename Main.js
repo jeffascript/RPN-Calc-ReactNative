@@ -11,7 +11,7 @@ import {
   Row,
 } from "./Main.styles";
 import { connect } from "react-redux";
-import { pressNum } from "./modules";
+import { pressNum, enter } from "./modules";
 import { bindActionCreators } from "redux";
 
 //  const mapDispatchToProps = (dispatch) => {
@@ -20,15 +20,21 @@ import { bindActionCreators } from "redux";
 //    }, dispatch
 //  };
 
-function Main({ currentNumber, pressNumWithDispatch }) {
+function Main({
+  calculatorState: { stack, inputState },
+  pressNumWithDispatch,
+  enterAction,
+}) {
   // const state = useSelector((state) => state);
+
+  console.log({ stack });
   return (
     <Container>
       <TopSection>
         {/* <Title color="palevioletred">Expo with 💅 Styled Components</Title> */}
-        <Number>0</Number>
-        <Number>0</Number>
-        <Number>{currentNumber}</Number>
+        <Number>{stack[2] || 0}</Number>
+        <Number>{stack[1] || 0}</Number>
+        <Number>{stack[0] || 0}</Number>
       </TopSection>
       <BottomSection>
         <Row>
@@ -63,7 +69,7 @@ function Main({ currentNumber, pressNumWithDispatch }) {
           {/* <Title color="chocolate">iOS • Android • web</Title> */}
           <Button text="0" onPress={pressNumWithDispatch} />
           <Button text="." />
-          <Button text="enter" special={true} />
+          <Button text="enter" special={true} onPress={enterAction} />
         </Row>
       </BottomSection>
     </Container>
@@ -71,11 +77,12 @@ function Main({ currentNumber, pressNumWithDispatch }) {
 }
 // export default Main;
 export default connect(
-  (state) => ({ currentNumber: state }),
+  (state) => ({ calculatorState: state }),
   (dispatch) =>
     bindActionCreators(
       {
         pressNumWithDispatch: pressNum,
+        enterAction: enter,
       },
       dispatch
     )
