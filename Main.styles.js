@@ -25,13 +25,21 @@ export const BottomSection = styled(View)`
 `;
 
 export const Number = styled(Text)`
-  color: #ffff;
+  color: ${({ functionality }) =>
+    functionality === "append"
+      ? "white"
+      : functionality === "replace"
+      ? "#2e71ef"
+      : functionality === "push"
+      ? "#9bc23c" //greenish
+      : "papayawhip"};
   background-color: #424242;
   text-align: right;
   padding: 10px;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   border-bottom-width: 1px;
+  border-color: #ffff;
 `;
 
 export const Row = styled(View)`
