@@ -1,9 +1,10 @@
 import styled from "styled-components/native";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity, Platform } from "react-native";
+import * as Animatable from "react-native-animatable";
 
 export const Container = styled(View)`
   flex: 1;
-  background-color: papayawhip;
+  background-color: #676259; //papayawhip
   /* justify-content: center;
   align-items: center; */
 `;
@@ -16,7 +17,7 @@ export const Title = styled(Text)`
 
 export const TopSection = styled(View)`
   /* background-color: blue; */
-  padding-top: 10%;
+  padding-top: ${Platform.OS === "ios" ? "38px" : "5%"};
 `;
 
 export const BottomSection = styled(View)`
@@ -24,7 +25,7 @@ export const BottomSection = styled(View)`
   flex: 1;
 `;
 
-export const Number = styled(Text)`
+export const Number = styled(Animatable.Text)`
   color: ${({ functionality }) =>
     functionality === "append"
       ? "white"
@@ -38,13 +39,18 @@ export const Number = styled(Text)`
   padding: 10px;
   font-size: 40px;
   font-weight: bold;
-  border-bottom-width: 1px;
-  border-color: #ffff;
+  /* border-bottom-width: 1px;
+  border-color: #ffff; */
 `;
 
 export const Row = styled(View)`
   flex: 1;
   flex-direction: row;
+  border-bottom-width: 1px;
+  border-color: #ffff;
+`;
+
+export const TouchableOpacityContainer = styled.TouchableOpacity`
   border-bottom-width: 1px;
   border-color: #ffff;
 `;

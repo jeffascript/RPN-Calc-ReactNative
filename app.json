@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "Jeff's RPN Calculator",
+    "slug": "jeff-rpn-calculator",
+    "icon": "./Calculator-icon.png",
+    "description": "RPN Calculator made by Jeff",
+    "sdkVersion": "40.0.0",
+    "version": "1.0.0",
+    "ios": {
+      "bundleidentifier": "com.jeffemerald.rpncalculator"
+    },
+    "android": {
+      "package": "com.jeffemerald.rpncalculator"
+    }
+  }
+}

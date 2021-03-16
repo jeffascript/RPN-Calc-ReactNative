@@ -9,6 +9,9 @@
 const PRESS_NUM = "PRESS_NUM";
 const ENTER = "ENTER";
 const OPERATION = "OPERATION";
+const CLEAR = "CLEAR";
+const SWAP = "SWAP";
+const TOGGLE_NEGATIVE = "TOGGLE_NEGATIVE";
 //action
 export const pressNum = (n) => ({
   type: PRESS_NUM,
@@ -24,6 +27,18 @@ export const operation = (op) => ({
   payload: op,
 });
 
+export const clear = () => ({
+  type: CLEAR,
+});
+
+export const swap = () => ({
+  type: SWAP,
+});
+
+export const toggleNegative = (idx) => ({
+  type: TOGGLE_NEGATIVE,
+  payload: idx,
+});
 const doOperation = (x, y, op) => {
   const a = parseFloat(x);
   const b = parseFloat(y);
@@ -42,15 +57,38 @@ const doOperation = (x, y, op) => {
   return 0;
 };
 
+const switchNegative = (x) => {
+  if (x.startsWith("-")) {
+    return x.slice(1);
+  }
+  return `-${x}`;
+};
+
 //state,actions
 
 //inputState = append || replace ||  push
 
-export const reducer = (
-  state = { stack: [], inputState: "replace" },
-  { type, payload }
-) => {
+const initialState = { stack: [], inputState: "replace" };
+export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case TOGGLE_NEGATIVE: {
+      return {
+        ...state, // inputState:state.inputState now included by the spread syntax
+        stack: state.stack.map((x, i) =>
+          payload === i ? switchNegative(x) : x
+        ),
+      };
+    }
+    case SWAP: {
+      return {
+        ...state,
+        stack: [state.stack[1], state.stack[0], ...state.stack.slice(2)], // retrning a new array where 2nd item becomes 1st, and 1st becomes 2nd; while i return the rest of the stack with sliced from the 3rd item
+        inputState: "push",
+      };
+    }
+    case CLEAR: {
+      return initialState;
+    }
     case OPERATION: {
       // const x = parseFloat(state.stack[0]);
       // const y = parseFloat(state.stack[1]);
